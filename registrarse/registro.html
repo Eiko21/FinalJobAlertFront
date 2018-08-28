@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {background-color: whitesmoke;text-align: center;font-family: 'Times New Roman', Times, serif;}
+		body * {font-weight: 600;}
+		.title{font-family: 'Times New Roman', Times, serif;font-size: 30px;}
+        button {margin-top: 17px;}
+        .wrapper{
+            display: flex;
+			justify-content: center;
+			align-content: center;
+			flex-direction: column;
+			padding: 5px 20px;
+			border-top: 0.5px solid #dadada;
+        }
+        input {
+			padding: 7px;
+			border: none;
+			border-radius: 20px;
+			text-align: center;
+			color: #00000095;
+			border: 1px solid #000000e8;
+		}
+		input::placeholder {color: #00000050;}
+		.inputDiv {margin-bottom: 14px;}
+		.wrapper {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			flex-direction: column;
+			padding: 20px;
+			border-top: 0.5px solid #dadada;
+		}
+        a{margin-top: 15px;}
+    </style>
+</head>
+<body>
+    <h1 class="title">Job Alert</h1>
+	<div class="wrapper w3-animate-zoom">
+        <p class="email">Enter the Email:</p>
+            <div class="inputDiv"><input type="email" name="email" id="email" placeholder="email"></div>
+        <p class="cont">Enter the password:</p>
+            <div class="inputDiv"><input type="password" name="password" id="password" placeholder="password"><br></div>
+        <p class="cont">Repeat the password:</p>
+            <div class="inputDiv"><input type="password" name="password" id="password" placeholder="password"><br></div>
+        <a class="w3-button w3-white w3-border w3-border-lime w3-round-large" href="subs.html">Sign up</a>
+    </div>
+</body>
+</html>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">

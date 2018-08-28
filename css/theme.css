@@ -1,0 +1,162 @@
+.login-wrap {max-width: 540px;padding-top: 8vh;margin: 0 auto;}
+.login-logo {text-align: center;margin-bottom: 30px;}
+.login-checkbox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.login-checkbox label input[type="checkbox"] {margin-right: 8px;}
+.login-checkbox > label > a {color: #ff2e44;}
+
+@media (max-width: 991px) {
+    .login-checkbox {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -moz-box-orient: vertical;
+        -moz-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+.form-group{margin-bottom: 1rem;}
+.login-form .form-group label {display: block;}
+.login-content {
+    background: #fff;
+    padding: 30px 30px 20px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.au-btn {
+    line-height: 45px;
+    padding: 0 35px;
+    text-transform: uppercase;
+    color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.au-btn:hover {color: #fff;background: #3868cd;}
+.au-btn--block {display: block;width: 100%;}
+.au-btn--green {background: #63c76a;}
+.au-btn--green:hover {background: #59bd60;}
+.au-btn--red {background: #da1111;}
+
+@media (max-width: 991px) {
+    .form-header {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+.form-header2 .au-btn--submit {border: none;line-height: 45px;}
+.form-header2 .au-input {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.051);
+    color: #999;
+}
+
+/* WebKit, Blink, Edge */
+.form-header2 .au-input::-webkit-input-placeholder {color: #999;}
+
+/* Mozilla Firefox 4 to 18 */
+.form-header2 .au-input:-moz-placeholder {color: #999;opacity: 1;}
+
+/* Mozilla Firefox 19+ */
+.form-header2 .au-input::-moz-placeholder {color: #999;opacity: 1;}
+
+/* Internet Explorer 10-11 */
+.form-header2 .au-input:-ms-input-placeholder {color: #999;}
+
+/* Microsoft Edge */
+.form-header2 .au-input:-ms-input-placeholder {color: #999;}
+
+/* ----- INPUT ----- */
+.au-input {
+    line-height: 43px;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    color: #666;
+    padding: 0 17px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.au-input--style2 {
+    color: #808080;
+    line-height: 43px;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    padding: 0 17px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.au-input--full {width: 100%;}
+.au-input--h65 {line-height: 63px;font-size: 16px;color: #808080;}
+.au-input--w300 {min-width: 300px;}
+.au-input--w435 {min-width: 435px;}
+
+@media (max-width: 767px) {.au-input--w435 {min-width: 230px;}}
+
+.au-form-icon {position: relative;}
+.au-form-icon .au-input {padding-right: 80px;}
+.au-form-icon--sm {position: relative;}
+.au-form-icon--sm .au-input {padding-right: 43px;}
+.au-input-icon {
+    position: absolute;
+    top: 1px;
+    right: 12px;
+    width: 63px;
+    height: 63px;
+    line-height: 63px;
+    text-align: center;
+    display: block;
+}
+
+.au-input-icon i {
+    font-size: 30px;
+    color: #808080;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.au-input--xl {min-width: 935px;}
+@media (max-width: 1600px) {.au-input--xl {min-width: 350px;}}
+@media (max-width: 991px) {.au-input--xl {min-width: 350px;}}
+@media (max-width: 767px) {.au-input--xl {min-width: 150px;}}

@@ -13,7 +13,6 @@ async function login(){
   .then(function(response) {
     // handle success
     if(response.status === 200){
-      console.log("RESPONSE:", response.data);
       chrome.storage.local.set({'email': data.email, 'password': data.password, 'id': response.data.id}, function() {
         localStorage.setItem("login", JSON.stringify({"email": data.email, "id": response.data.id}))
         window.location.href = "/suscripciones/subs.html";
@@ -23,9 +22,8 @@ async function login(){
   .catch(function (error) {
     // handle error
     console.log("Login fallido:", error);
-    console.log($('.error').length);
     if ($('.error').length == 0) {
-      $( ".login-form" ).append( "<p class='error'>Incorrect email or password</p>" );
+      $( ".login-form" ).append( "<p class='error center-text'>Incorrect email or password</p>" );
     }
   })
   .then(function () {

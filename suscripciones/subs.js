@@ -1,5 +1,4 @@
 $(function(){
-  console.log("Start");
   $("#track").click(track)
 })
   
@@ -9,7 +8,6 @@ async function track() {
     subscription: ""
   };
   await getCurrentDomain().then(function (result) {
-    console.log("Result:", result);
     data.subscription = result;
     chrome.storage.local.get(['email'], function(result){
       data.email= result.email;
@@ -30,16 +28,13 @@ async function getCurrentDomain() {
       if (match = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n\?\=]+)/im)) {
         result = match[1]
         if (result === "jobs.lever.co" || result === "boards.greenhouse.io") {
-          //let filter = (/\b.*(?=(\.))/);
           result = url.match(/\/([^/]*)$/)[1];
-          //console.log(result)
         } else {
           if (match = result.match(/^[^\.]+\.(.+\..+)$/)) {
             result = match[1]
           }
           let filter = (/\b.*(?=(\.))/);
           result = filter.exec(result);
-          //console.log(result)
         }
       }
       if (result && typeof(result) === "object") {
@@ -52,25 +47,14 @@ async function getCurrentDomain() {
 
   });
 
-  /*
-  //Promise.resolve(promise)
-  promise.then(function () {
-    console.log("La promesa devuelve", result);
-  });
-  */
-  
 }
 
-
-//console.log("getCurrentDomain returns", result);
-//return result;
 
 async function subscribe(data){
   axios.post('http://34.253.84.43:3030/api/subscriptions/subscribe', data)
   .then(function (response) {
     // handle success
     if(response.status === 201){
-      console.log("Suscrito correctamente");
       $("#but").html("Subscribed");
       $("#but").addClass("btn-disabled");
       $("#but").attr("disabled", true);
@@ -81,9 +65,6 @@ async function subscribe(data){
     // handle error
     console.log(error);
   })
-  .then(function () {
-    // always executed
-  });
 }
 
 
@@ -99,13 +80,11 @@ async function checkCanSubscribe() {
       }).then(function (response) {
       if (response.status == 200) {
         $("#but").html("Subscribe");
-        console.log("Se puede suscribir")
       }
       else {
         $("#but").html("Unavailable");
         $("#but").addClass("btn-disabled");
         $("#but").attr("disabled", true);
-        console.log("No se puede suscribir")
       }
       checkIsSuscribed();
       }).catch(function (err){
@@ -119,7 +98,6 @@ checkCanSubscribe();
 
 async function checkIsSuscribed() {
   getCurrentDomain().then(function (response) {
-    console.log('checkIsSuscribed -> response', response);
     getSubscriptions(response);
   })
 }
@@ -131,15 +109,10 @@ async function getSubscriptions(domain){
   axios.get('http://34.253.84.43:3030/api/subscriptions/'+localData.id)
   .then(function (response) {
     // handle success
-    //console.log(response);
     if (response.data.subscriptions.includes(domain)) {
-      console.log("Ya estas suscrito a", domain)
       $("#but").html("Subscribed");
       $("#but").addClass("btn-disabled");
       $("#but").attr("disabled", true);
-    }
-    else {
-      console.log("No te has suscrito a", domain)
     }
   })
   .catch(function (error) {
@@ -155,5 +128,4 @@ $("#but").on("click", function(){
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Inicio');
 });

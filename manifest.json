@@ -1,10 +1,10 @@
 {
     "name": "JobTracker",
     "version": "1.0",
-    "description": "Build an Extension!",
-    "permissions": ["declarativeContent", "storage", "activeTab", "cookies", "<all_urls>"],
+    "description": "Get all your new job notifications in one place.",
+    "permissions": ["declarativeContent", "storage", "activeTab", "cookies", "<all_urls>", "tabs"],
     "background": {
-        "scripts": ["jquery-3.3.1.min.js", "axios.js", "login.js"],
+        "page": "background.html",
         "persistent": false
     },
     "browser_action": {

@@ -13,22 +13,25 @@ async function login(){
   .then(function(response) {
     // handle success
     if(response.status === 200){
-      chrome.storage.local.set({'email': data.email, 'password': data.password, 'id': response.data._id}, function() {
-        localStorage.setItem("login", data.email)
-        console.log(localStorage.getItem(data.password, data.email))
+      console.log("RESPONSE:", response.data);
+      chrome.storage.local.set({'email': data.email, 'password': data.password, 'id': response.data.id}, function() {
+        localStorage.setItem("login", JSON.stringify({"email": data.email, "id": response.data.id}))
         window.location.href = "/suscripciones/subs.html";
       });
     }
   })
   .catch(function (error) {
     // handle error
-    console.log(error);
+    console.log("Login fallido:", error);
+    console.log($('.error').length);
+    if ($('.error').length == 0) {
+      $( ".login-form" ).append( "<p class='error'>Incorrect email or password</p>" );
+    }
   })
   .then(function () {
     // always executed
   });
 }
 $("#login").on("click", function(){
-  console.log('PUTOS TODOS')
   login();
 })

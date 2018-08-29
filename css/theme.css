@@ -1,4 +1,4 @@
-.login-wrap {max-width: 540px;padding-top: 8vh;margin: 0 auto;}
+.login-wrap {max-width: 540px;padding-top: 8vh;padding-bottom: 8vh;margin: 0 auto;}
 .login-logo {text-align: center;margin-bottom: 30px;}
 .login-checkbox {
     display: -webkit-box;
@@ -50,13 +50,16 @@
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
     cursor: pointer;
+    margin: 10px;
+    border: none;
 }
 
 .au-btn:hover {color: #fff;background: #3868cd;}
-.au-btn--block {display: block;width: 100%;}
-.au-btn--green {background: #63c76a;}
-.au-btn--green:hover {background: #59bd60;}
-.au-btn--red {background: #da1111;}
+.au-btn--block {display: block;width: 100%;border-radius:5px;}
+.au-btn--green {background: #34be22;}
+.au-btn--green:hover {background: #028529;}
+.au-btn--red {background: #c72828;}
+.au-btn--red:hover {background: #910013;}
 
 @media (max-width: 991px) {
     .form-header {
@@ -160,3 +163,9 @@
 @media (max-width: 1600px) {.au-input--xl {min-width: 350px;}}
 @media (max-width: 991px) {.au-input--xl {min-width: 350px;}}
 @media (max-width: 767px) {.au-input--xl {min-width: 150px;}}
+
+.error {
+    color:#ff2020;
+    margin: 20px 0 0 0;
+    font-weight: normal;
+}

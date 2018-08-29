@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   chrome.storage.local.get(['email','password','id'], function(result){
-      axios.post('http://localhost:3333/api/subscriptions/subscribe', data)
+      axios.post('http://34.253.84.43:3030/api/subscriptions/subscribe', data)
         .then(function (response) {
           // handle success
           if(response.status === 200){
@@ -8,7 +8,7 @@ $( document ).ready(function() {
               window.location.href = "/suscripciones/subs.html";
             });
           }
-          fetch('http://localhost:3333/api/subscriptions/subscribe', {
+          fetch('http://34.253.84.43:3030/api/subscriptions/subscribe', {
             method: 'post',
             body: JSON.stringify(result)
           }).then(function(response){return response.json();})

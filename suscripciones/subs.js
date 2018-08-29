@@ -66,7 +66,7 @@ async function getCurrentDomain() {
 //return result;
 
 async function subscribe(data){
-  axios.post('http://localhost:3333/api/subscriptions/subscribe', data)
+  axios.post('http://34.253.84.43:3030/api/subscriptions/subscribe', data)
   .then(function (response) {
     // handle success
     if(response.status === 201){
@@ -94,10 +94,36 @@ async function checkIsSuscribed() {
 checkIsSuscribed();
 
 
+async function checkCanSubscribe() {
+  getCurrentDomain().then(function (response) {
+    
+    axios({
+      method: 'post',
+      url: 'http://34.253.84.43:3030/api/subscriptions/checksubscribe',
+      data: {
+        subscription: response,
+      }
+      }).then(function (response) {
+      if (response.status == 200) {
+        $("#but").html("Subscribe");
+      }
+      else {
+        $("#but").html("Unavailable");
+        $("#but").attr("disabled", true);
+      }
+      }).catch(function (err){
+        console.log(err);
+      })
+
+  })
+}
+checkCanSubscribe();
+
+
 //getSubscriptions(getCurrentDomain());
 async function getSubscriptions(domain){
   const localData = JSON.parse(localStorage.getItem("login"))
-  axios.get('http://localhost:3333/api/subscriptions/'+localData.id)
+  axios.get('http://34.253.84.43:3030/api/subscriptions/'+localData.id)
   .then(function (response) {
     // handle success
     //console.log(response);

@@ -9,7 +9,7 @@ async function login(){
     //password: hash.sha256().update(document.getElementById("password").value).digest('hex')
     password: document.getElementById("password").value
   }
-  axios.post('http://localhost:3333/api/sign', data)
+  axios.post('http://34.253.84.43:3030/api/sign', data)
   .then(function(response) {
     // handle success
     if(response.status === 200){

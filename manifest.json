@@ -7,6 +7,7 @@
         "page": "background.html",
         "persistent": false
     },
+    "icons": { "64": "images/get_started48.png" },
     "browser_action": {
         "default_popup": "popup.html",
         "default_icon": {

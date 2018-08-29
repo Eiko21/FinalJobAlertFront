@@ -29,6 +29,5 @@ async function login(){
   });
 }
 $("#login").on("click", function(){
-  console.log('PUTOS TODOS')
   login();
 })

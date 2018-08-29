@@ -1,4 +1,4 @@
-//import hash from 'hash.js'
+
 if (localStorage.getItem("login")) {
   window.location.href = "/suscripciones/subs.html";
 }
@@ -6,9 +6,10 @@ if (localStorage.getItem("login")) {
 async function login() {
   const data = {
     email: document.getElementById("email").value,
-    //password: hash.sha256().update(document.getElementById("password").value).digest('hex')
-    password: document.getElementById("password").value
+    password: sha256(document.getElementById("password").value)
+    //password: document.getElementById("password").value
   }
+  console.log(data.password)
   axios.post('http://34.253.84.43:3030/api/sign', data)
     .then(function (response) {
       // handle success

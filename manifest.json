@@ -1,5 +1,6 @@
 {
     "name": "Job Alert",
+    "short_name": "Job Alert",
     "version": "1.0",
     "description": "Get all your new job notifications in one place.",
     "permissions": ["declarativeContent", "storage", "activeTab", "cookies", "<all_urls>", "tabs"],

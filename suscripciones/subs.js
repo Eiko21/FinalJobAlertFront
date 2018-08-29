@@ -72,6 +72,7 @@ async function subscribe(data){
     if(response.status === 201){
       console.log("Suscrito correctamente");
       $("#but").html("Subscribed");
+      $("#but").addClass("btn-disabled");
       $("#but").attr("disabled", true);
       return true;
     }
@@ -84,14 +85,6 @@ async function subscribe(data){
     // always executed
   });
 }
-
-async function checkIsSuscribed() {
-  getCurrentDomain().then(function (response) {
-    console.log('checkIsSuscribed -> response', response);
-    getSubscriptions(response);
-  })
-}
-checkIsSuscribed();
 
 
 async function checkCanSubscribe() {
@@ -106,11 +99,15 @@ async function checkCanSubscribe() {
       }).then(function (response) {
       if (response.status == 200) {
         $("#but").html("Subscribe");
+        console.log("Se puede suscribir")
       }
       else {
         $("#but").html("Unavailable");
+        $("#but").addClass("btn-disabled");
         $("#but").attr("disabled", true);
+        console.log("No se puede suscribir")
       }
+      checkIsSuscribed();
       }).catch(function (err){
         console.log(err);
       })
@@ -118,6 +115,14 @@ async function checkCanSubscribe() {
   })
 }
 checkCanSubscribe();
+
+
+async function checkIsSuscribed() {
+  getCurrentDomain().then(function (response) {
+    console.log('checkIsSuscribed -> response', response);
+    getSubscriptions(response);
+  })
+}
 
 
 //getSubscriptions(getCurrentDomain());
@@ -130,6 +135,7 @@ async function getSubscriptions(domain){
     if (response.data.subscriptions.includes(domain)) {
       console.log("Ya estas suscrito a", domain)
       $("#but").html("Subscribed");
+      $("#but").addClass("btn-disabled");
       $("#but").attr("disabled", true);
     }
     else {

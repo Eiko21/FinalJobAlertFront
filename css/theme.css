@@ -1,5 +1,5 @@
-.login-wrap {max-width: 540px;padding-top: 7vh;padding-bottom: 7vh;margin: 0 auto;}
-.login-logo {text-align: center;margin-bottom: 30px;}
+.login-wrap {max-width: 590px;padding-top: 4vh;padding-bottom: 4vh;margin: 0 auto;}
+.login-logo {text-align: center;margin-bottom: 20px;}
 .login-checkbox {
     display: -webkit-box;
     display: -webkit-flex;
@@ -31,7 +31,7 @@
 .login-form .form-group label {display: block;}
 .login-content {
     background: #fff;
-    padding: 30px 30px 20px;
+    padding: 30px 50px 20px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -56,10 +56,10 @@
 
 .au-btn:hover {color: #fff;background: #3868cd;}
 .au-btn--block {display: block;width: 100%;border-radius:5px;}
-.au-btn--green {background: #3ccc29;}
-.au-btn--green:hover {background: #028529;}
-.au-btn--red {background: #cf2d2d;}
-.au-btn--red:hover {background: #910013;}
+.au-btn--green {background: #01b92f;}
+.au-btn--green:hover {background: #009625;}
+.au-btn--red {background: #c42323; margin-bottom: 30px;}
+.au-btn--red:hover {background: #a80a1f;}
 
 @media (max-width: 991px) {
     .form-header {
@@ -172,4 +172,27 @@
 
 .center-text {
     text-align: center;
+    margin-bottom: 15px;
+}
+
+.dashboard-btn {
+    background-color: #0000001f;
+    border-radius: 3px;
+    color: #333;
+    padding: 9px 16px;
+}
+
+.dashboard-btn:hover {
+    background-color: #00000027;
+    color: #333;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.btn-disabled {
+    background-color: #999999;
+}
+
+.btn-disabled:hover {
+    background-color: #707070;
 }

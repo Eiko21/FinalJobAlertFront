@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+/*$( document ).ready(function() {
   chrome.storage.local.get(['email','password','id'], function(result){
       axios.post('http://34.253.84.43:3030/api/subscriptions/subscribe', data)
         .then(function (response) {
@@ -21,7 +21,7 @@ $( document ).ready(function() {
           // always executed
         });
   });
-});
+});*/
 
 $(function(){
   console.log("Start");

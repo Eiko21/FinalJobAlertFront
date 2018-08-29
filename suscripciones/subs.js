@@ -1,7 +1,7 @@
-$(function(){
+$(function () {
   $("#track").click(track)
 })
-  
+
 async function track() {
   let data = {
     email: "",
@@ -9,8 +9,8 @@ async function track() {
   };
   await getCurrentDomain().then(function (result) {
     data.subscription = result;
-    chrome.storage.local.get(['email'], function(result){
-      data.email= result.email;
+    chrome.storage.local.get(['email'], function (result) {
+      data.email = result.email;
       subscribe(data)
     })
   })
@@ -21,8 +21,8 @@ async function getCurrentDomain() {
   let result;
   let match;
 
-  return new Promise(function(resolve, reject) {
-    
+  return new Promise(function (resolve, reject) {
+
     chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
       const url = tabs[0].url;
       if (match = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n\?\=]+)/im)) {
@@ -37,7 +37,7 @@ async function getCurrentDomain() {
           result = filter.exec(result);
         }
       }
-      if (result && typeof(result) === "object") {
+      if (result && typeof (result) === "object") {
         result = result[0];
       }
       resolve(result);
@@ -50,34 +50,34 @@ async function getCurrentDomain() {
 }
 
 
-async function subscribe(data){
+async function subscribe(data) {
   axios.post('http://34.253.84.43:3030/api/subscriptions/subscribe', data)
-  .then(function (response) {
-    // handle success
-    if(response.status === 201){
-      $("#but").html("Subscribed");
-      $("#but").addClass("btn-disabled");
-      $("#but").attr("disabled", true);
-      return true;
-    }
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
+    .then(function (response) {
+      // handle success
+      if (response.status === 201) {
+        $("#but").html("Subscribed");
+        $("#but").addClass("btn-disabled");
+        $("#but").attr("disabled", true);
+        return true;
+      }
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
 }
 
 
 async function checkCanSubscribe() {
   getCurrentDomain().then(function (response) {
-    
+
     axios({
       method: 'post',
       url: 'http://34.253.84.43:3030/api/subscriptions/checksubscribe',
       data: {
         subscription: response,
       }
-      }).then(function (response) {
+    }).then(function (response) {
       if (response.status == 200) {
         $("#but").html("Subscribe");
       }
@@ -87,9 +87,9 @@ async function checkCanSubscribe() {
         $("#but").attr("disabled", true);
       }
       checkIsSuscribed();
-      }).catch(function (err){
-        console.log(err);
-      })
+    }).catch(function (err) {
+      console.log(err);
+    })
 
   })
 }
@@ -104,28 +104,28 @@ async function checkIsSuscribed() {
 
 
 //getSubscriptions(getCurrentDomain());
-async function getSubscriptions(domain){
+async function getSubscriptions(domain) {
   const localData = JSON.parse(localStorage.getItem("login"))
-  axios.get('http://34.253.84.43:3030/api/subscriptions/'+localData.id)
-  .then(function (response) {
-    // handle success
-    if (response.data.subscriptions.includes(domain)) {
-      $("#but").html("Subscribed");
-      $("#but").addClass("btn-disabled");
-      $("#but").attr("disabled", true);
-    }
-  })
-  .catch(function (error) {
-    // handle error
-    console.log("Error en getSubs", error);
-  })
-  .then(function () {
-    // always executed
-  });
+  axios.get('http://34.253.84.43:3030/api/subscriptions/' + localData.id)
+    .then(function (response) {
+      // handle success
+      if (response.data.subscriptions.includes(domain)) {
+        $("#but").html("Subscribed");
+        $("#but").addClass("btn-disabled");
+        $("#but").attr("disabled", true);
+      }
+    })
+    .catch(function (error) {
+      // handle error
+      console.log("Error en getSubs", error);
+    })
+    .then(function () {
+      // always executed
+    });
 }
-$("#but").on("click", function(){
+$("#but").on("click", function () {
   track();
 })
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 });

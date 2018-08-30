@@ -81,6 +81,8 @@ async function checkCanSubscribe() {
     }).then(function (response) {
       if (response.status == 200) {
         $("#but").html("Subscribe");
+        $("#but").removeClass("btn-disabled");
+        $("#but").attr("disabled", false);
       }
       else {
         $("#but").html("Unavailable");

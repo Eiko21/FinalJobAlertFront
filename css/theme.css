@@ -52,6 +52,7 @@
     cursor: pointer;
     margin: 10px;
     border: none;
+    min-width: 200px;
 }
 
 .au-btn:hover {color: #fff;background: #3868cd;}

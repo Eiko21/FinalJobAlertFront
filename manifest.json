@@ -5,8 +5,7 @@
     "description": "Get all your new job notifications in one place.",
     "permissions": ["declarativeContent", "storage", "activeTab", "cookies", "<all_urls>", "tabs"],
     "background": {
-        "page": "background.html",
-        "persistent": false
+        "page": "background.html"
     },
     "icons": { "64": "images/get_started48.png" },
     "browser_action": {

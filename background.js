@@ -56,7 +56,21 @@ function track() {
 	return;
 }
 
-
+function checkAlert() {
+	
+	const userId = JSON.parse(localStorage.getItem("login")).id;
+	axios({
+		method: 'get',
+		url: 'http://34.253.84.43:3030/api/jobs/'+userId
+	}).then(function (response) {
+		if (response.status == 200) {
+			chrome.browserAction.setBadgeText({text: response.data.length.toString()});
+		}
+	}).catch(function (err) {
+		console.log(err);
+	})
+	
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 });
@@ -68,6 +82,7 @@ chrome.tabs.onUpdated.addListener(
 
 			if (localStorage.getItem("login")) { // Si la sesion esta iniciada
 				track();
+				checkAlert();
 			}
 			else {
 				chrome.browserAction.setIcon({ path: "./images/disabled.png" });
@@ -81,6 +96,7 @@ chrome.tabs.onActivated.addListener(
 
 		if (localStorage.getItem("login")) { // Si la sesion esta iniciada
 			track();
+			checkAlert();
 		}
 		else {
 			chrome.browserAction.setIcon({ path: "./images/disabled.png" });

@@ -1,6 +1,9 @@
-
 if (localStorage.getItem("login")) {
   window.location.href = "/suscripciones/subs.html";
+}
+else {
+  // Restear el número del contador de la extensión:
+  chrome.browserAction.setBadgeText({text: ""});
 }
 
 async function login() {
@@ -9,7 +12,7 @@ async function login() {
     password: sha256(document.getElementById("password").value)
     //password: document.getElementById("password").value
   }
-  console.log(data.password)
+  //console.log(data.password)
   axios.post('http://34.253.84.43:3030/api/sign', data)
     .then(function (response) {
       // handle success

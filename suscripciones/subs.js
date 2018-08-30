@@ -126,6 +126,25 @@ async function getSubscriptions(domain) {
       // always executed
     });
 }
+
+function checkAlert() {
+	
+	const userId = JSON.parse(localStorage.getItem("login")).id;
+	axios({
+		method: 'get',
+		url: 'http://34.253.84.43:3030/api/jobs/'+userId
+	}).then(function (response) {
+		if (response.status == 200) {
+			chrome.browserAction.setBadgeText({text: response.data.length.toString()});
+		}
+	}).catch(function (err) {
+		console.log(err);
+	})
+	
+}
+
+checkAlert();
+
 $("#but").on("click", function () {
   track();
 })

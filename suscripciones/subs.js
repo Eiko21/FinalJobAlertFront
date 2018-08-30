@@ -1,6 +1,6 @@
-$(function () {
+/*$(function () {
   $("#track").click(track)
-})
+})*/
 
 async function track() {
   let data = {

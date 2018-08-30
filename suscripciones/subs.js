@@ -4,16 +4,17 @@ $(function () {
 
 async function track() {
   let data = {
+    id: "",
     email: "",
     subscription: ""
   };
-  await getCurrentDomain().then(function (result) {
+  await getCurrentDomain().then(async function (result) {
     data.subscription = result;
-    chrome.storage.local.get(['email'], function (result) {
-      data.email = result.email;
+    const localData = JSON.parse(localStorage.getItem("login"))
+    data.id = localData.id;
+    data.email = localData.email;
       subscribe(data)
     })
-  })
 }
 
 async function getCurrentDomain() {

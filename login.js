@@ -34,3 +34,10 @@ async function login() {
 $("#login").on("click", function () {
   login();
 })
+
+$('input').keyup(function(e){
+  if(e.keyCode == 13)
+  {
+      login();
+  }
+});
